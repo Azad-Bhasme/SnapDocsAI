@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Preview - SnapDocs AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="bg-gradient-to-br from-black via-gray-900 to-blue-900 min-h-screen text-white font-sans flex flex-col justify-center items-center p-8">
+
+  <!-- Animated Heading -->
+  <h1 class="text-4xl font-extrabold mb-6 animate-fadeIn">📁 Preview: <span class="text-blue-400">{{ filename }}</span></h1>
+
+  <!-- File Preview -->
+  <div class="bg-white rounded-lg shadow-lg p-4 mb-6 max-w-2xl w-full flex flex-col items-center">
+    {% if filename.endswith(('.png', '.jpg', '.jpeg')) %}
+      <img src="{{ url_for('static', filename='../uploads/' + filename) }}"
+           alt="Preview" class="rounded-lg max-h-[400px] object-contain">
+    {% elif filename.endswith('.pdf') %}
+      <embed src="{{ url_for('static', filename='../uploads/' + filename) }}"
+             type="application/pdf" class="w-full h-96 rounded-lg">
+    {% else %}
+      <p class="text-black">Preview not available for this file type.</p>
+    {% endif %}
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+    <a href="{{ url_for('convert_to_pdf', filename=filename) }}"
+       class="bg-blue-600 hover:bg-blue-800 px-6 py-3 rounded-lg text-white font-semibold shadow transition duration-300">
+      📄 Convert to PDF
+    </a>
+    <a href="{{ url_for('extract_text', filename=filename) }}"
+       class="bg-green-600 hover:bg-green-800 px-6 py-3 rounded-lg text-white font-semibold shadow transition duration-300">
+      🔍 Extract Text
+    </a>
+    <a href="{{ url_for('view_comments', filename=filename) }}"
+       class="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg text-white font-semibold shadow transition duration-300">
+      💬 View Comments
+    </a>
+    <a href="{{ url_for('view_tags', filename=filename) }}"
+       class="bg-purple-600 hover:bg-purple-800 px-6 py-3 rounded-lg text-white font-semibold shadow transition duration-300">
+      🏷️ View Tags
+    </a>
+  </div>
+
+  <p class="text-gray-400 text-sm mt-4">Made with ❤️ by Mvaps Solutions</p>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnapDocs AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            slideInLeft: 'slideInLeft 1s ease-out forwards',
+            slideInRight: 'slideInRight 1s ease-out forwards',
+            fadeIn: 'fadeIn 2s ease-in-out forwards',
+          },
+          keyframes: {
+            slideInLeft: {
+              '0%': { transform: 'translateX(-100%)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            slideInRight: {
+              '0%': { transform: 'translateX(100%)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+          },
+        },
+      }
+    }
+  </script>
+</head>
+<body class="overflow-x-hidden bg-black text-white">
+
+  <!-- Splash Screen -->
+  <div id="splash" class="fixed inset-0 flex flex-col justify-center items-center z-50 px-4 bg-gradient-to-r from-red-700 via-black to-blue-700 animate-pulse">
+    <div class="flex gap-4 mb-4">
+      <div class="text-5xl font-extrabold animate-slideInLeft">SnapDocs</div>
+      <div class="text-5xl font-extrabold animate-slideInRight">AI</div>
+    </div>
+    <i class="fas fa-file-alt text-6xl text-white animate-fadeIn"></i>
+    <p class="text-white mt-4 flex items-center gap-2 font-medium animate-ping">
+      made with <span class="text-red-500">💌</span> by Mvaps Solutions
+    </p>
+  </div>
+
+  <!-- Main UI -->
+  <div id="app" class="hidden min-h-screen px-6 py-10 bg-gradient-to-tr from-red-800 via-black to-blue-800">
+    <h1 class="text-4xl text-center font-bold mb-10">SnapDocs AI Dashboard</h1>
+
+    <form method="POST" enctype="multipart/form-data"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto text-white">
+
+      <div class="p-6 rounded-xl shadow-lg bg-white text-black col-span-full">
+        <h2 class="text-xl font-semibold mb-2">📁 Upload a File</h2>
+        <input type="file" name="file" class="w-full mb-3 p-2 rounded bg-gray-100" required>
+        <button type="submit" formaction="{{ url_for('upload') }}"
+                class="w-full bg-black text-white font-bold py-2 rounded hover:bg-gray-700 transition">
+          Upload & Preview
+        </button>
+      </div>
+
+    </form>
+
+    <p class="text-center text-sm text-gray-300 mt-8">made with ❤️ by Mvaps Solutions</p>
+  </div>
+
+  <!-- Splash Logic -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('splash').classList.add('hidden');
+        document.getElementById('app').classList.remove('hidden');
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

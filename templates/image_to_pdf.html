@@ -1,0 +1,20 @@
+<!-- templates/image_to_pdf.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image to PDF</title>
+</head>
+<body>
+    <h1>Convert Image to PDF</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image_file" accept="image/png, image/jpeg" required>
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if pdf_url %}
+        <p>Download your PDF:</p>
+        <a href="{{ url_for('static', filename=pdf_url) }}" target="_blank">View PDF</a>
+    {% endif %}
+</body>
+</html>

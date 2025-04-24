@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Result - SnapDocs AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white min-h-screen flex flex-col items-center justify-center px-6 py-10">
+
+  <div class="w-full max-w-4xl bg-gray-900 p-8 rounded-lg shadow-2xl animate-fadeIn">
+    <h1 class="text-3xl font-bold text-center mb-6">Extracted Text</h1>
+
+    <div class="bg-black text-white p-4 rounded-md border border-gray-700 overflow-y-auto max-h-[400px] mb-6">
+      <pre class="whitespace-pre-wrap break-words">{{ text }}</pre>
+    </div>
+
+    <div class="text-center">
+      <a href="{{ url_for('index') }}"
+         class="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-300 transition duration-300">
+        Back to Home
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
