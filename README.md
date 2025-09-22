@@ -1,28 +1,31 @@
-Project Name: SnapDocsAI 📝🤖
+# 📝 SnapDocsAI
 
-Description:
-SnapDocsAI is a Flask-based document intelligence platform that allows users to:
+🧠 **About the Project**  
+SnapDocsAI is a **Flask-based document intelligence platform** that allows users to upload PDF or image documents, convert images to searchable PDFs, extract text using **OCR (Tesseract)**, and add comments & tags for better organization. Achieved **85% text extraction accuracy**.
 
-📂 Upload PDF or image documents
+---
 
-🖼️ Convert images to searchable PDFs
+🚀 **Features**  
+- 📂 Upload PDF or image documents  
+- 🖼️ Convert images to searchable PDFs using **Pillow**  
+- 🔍 Extract text from PDFs or images using **PyMuPDF** & **Tesseract OCR**  
+- 💬 Add comments and tag documents for better organization  
+- 👤 User authentication (register/login via Flask-WTF forms)  
+- 📁 Files managed in `uploads/`, `converted/`, and `processed/` directories  
 
-🔍 Extract text using OCR (Tesseract)
+---
 
-🏷️ Add comments and tags for better organization
+🛠️ **Technologies Used**  
+- Python 🐍  
+- Flask ⚡  
+- PyMuPDF 📄  
+- Pillow 🖼️  
+- Tesseract OCR 🔍  
+- HTML + Jinja2 🌐  
+- Werkzeug, UUID  
 
-Implemented user authentication, file handling, and modular routing for smooth document management. Achieved 85% text extraction accuracy.
+---
 
-Skills: 🐍 Python, ⚡ Flask, 🔍 OCR (Tesseract), 📄 PyMuPDF, 🖼️ Image Processing (Pillow)
+🔗 **GitHub Repo**  
+👉 [SnapDocsAI](https://github.com/Azad-Bhasme/SnapDocsAI)
 
-Additional Details:
-
-👤 User Authentication: Login/register using Flask-WTF forms
-
-📁 File Handling: Files in uploads/; images → PDFs in converted/
-
-📝 Text Extraction: PDFs via PyMuPDF, images via Tesseract OCR
-
-💬 Commenting & Tagging: Users can annotate & categorize documents
-
-🛠️ Tech Stack: Flask, PyMuPDF, Pillow, pytesseract, HTML + Jinja2, Werkzeug, UUID
